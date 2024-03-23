@@ -16,10 +16,10 @@ class PredictPipeline:
         try:
             model_path=os.path.join("artifacts","model.pkl")
             preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
-            print("Before Loading")
-            model=load_object(file_path=model_path)
-            preprocessor=load_object(file_path=preprocessor_path)
-            print("After Loading")
+           
+            model=load_object(model_path)
+            preprocessor=load_object(preprocessor_path)
+            
             data_scaled=preprocessor.transform(features)
             preds=model.predict(data_scaled)
             
@@ -28,6 +28,7 @@ class PredictPipeline:
             # so convert the scaled predicted values to normal values            
             return preds
         except Exception as e:
+            logging.info("Exception occured in prediction")
             raise customexception(e,sys)
         
 
@@ -40,7 +41,7 @@ class CustomData:
         yr: str,
         mnth: str,
         hr: str,
-        # holiday: str,
+
         weekday: str,
         workingday: str,
         weathersit: str,
@@ -55,8 +56,6 @@ class CustomData:
         self.mnth = mnth
 
         self.hr = hr
-
-        # self.holiday = holiday
 
         self.weekday = weekday
 
@@ -77,7 +76,6 @@ class CustomData:
                 "yr": [self.yr],
                 "mnth": [self.mnth],
                 "hr": [self.hr],
-                # "holiday": [self.holiday],
                 "weekday": [self.weekday],
                 "workingday": [self.workingday],
                 "weathersit": [self.weathersit],
@@ -86,7 +84,10 @@ class CustomData:
                 "windspeed": [self.windspeed]
             }
 
-            return pd.DataFrame(custom_data_input_dict)
-
+            df = pd.DataFrame(custom_data_input_dict)
+            logging.info("Dataframe Gathered")
+            return df 
+        
         except Exception as e:
+            logging.info('Exception Occured in prediction pipeline')
             raise customexception(e, sys)

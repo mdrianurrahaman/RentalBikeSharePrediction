@@ -1,0 +1,195 @@
+<html>
+<body>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+       
+    }
+    
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type=""],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+
+    select {
+        height: 36px;
+    }
+
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+
+<h1 style="text-align: center;">Welcome to Rental Bike Share Prediction  Web App</h1>
+<h5 style="text-align: center;" >By:Md Rian Ur Rahaman </h5>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    
+    <div class="form-group">
+        <label for="Temperature(°C)">Temperature(°C):</label>
+        <input type="" id="temp" name="temp" required="required"/>
+    </div>
+
+    
+
+    <div class="form-group">  
+        <label for="Humidity">Humidity:</label>
+        <input type="" id="hum" name="hum" required="required"/>
+    </div>
+    
+    <div class="form-group">
+        <label for="Windspeed">Windspeed:</label>
+        <input type="" id="windspeed" name="windspeed"  required="required">
+    </div>
+         
+  
+<div class="form-group">
+  <label for="Season">Season</label>
+  <select id="season" name="season"  required="required">
+    <option value="1">Spring</option>
+    <option value="2">Summer</option>
+    <option value="3">Fall</option>
+    <option value="4">Winter</option>
+  </select>
+</div>
+  
+<div class="form-group">
+  <label for="Weather">Weather</label>
+  <select id="weathersit" name="weathersit"  required="required">
+    <option value="1"> Clear, Few clouds, Partly cloudy, Partly cloudy </option>
+    <option value="2"> Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist </option>
+    <option value="3"> Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds </option>
+    <option value="4"> Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog </option>
+  </select>
+</div>
+
+<div class="form-group">
+    <label for="Month">Month</label>
+    <select id="mnth" name="mnth"  required="required">
+    <option value="1"> January </option>
+    <option value="2"> February </option>
+    <option value="3"> March </option>
+    <option value="4"> April </option>
+    <option value="5"> May </option>
+    <option value="6"> June </option>
+    <option value="7"> July </option>
+    <option value="8"> August </option>
+    <option value="9"> September </option>
+    <option value="10"> October </option>
+    <option value="11"> November </option>
+    <option value="12"> December </option>
+    </select>
+</div>
+
+
+
+<div class="form-group">
+    <label for ="weekday">Day Of The Week </label>
+    <select name="weekday" id="weekday" required="required">
+        <option value="0"> Sunday </option>
+        <option value="1"> Monday </option>
+        <option value="2"> Tuesday </option>
+        <option value="3"> Wednesday </option>
+        <option value="4"> Thursday </option>
+        <option value="5"> Friday </option>
+        <option value="6"> Saturday </option>
+      </select>
+</div>
+
+<div class ="form-group">
+    <label for="Workingday">Workingday</label>
+    <select name="workingday" id="workingday" required="required">
+        <option value="0">Not Workday </option>
+        <option value="1">Workday </option>
+      </select>
+    </div>
+    
+    
+<div class="form-group">
+<label for="Year">Year</label>
+<select name="yr" id="yr" required="required">
+    <option value="0"> 2011 </option>
+    <option value="1"> 2012 </option>
+  </select>
+</div>  
+
+
+<div class="form-group">
+<label for="Hour">Hour</label>
+
+<select name="hr" id="hr" required="required">
+    <option value="0"> 1 </option>
+    <option value="1"> 2 </option>
+    <option value="2"> 3 </option>
+    <option value="3"> 4 </option>
+    <option value="4"> 5 </option>
+    <option value="5"> 6 </option>
+    <option value="6"> 7 </option>
+    <option value="7"> 8 </option>
+    <option value="8"> 9 </option>
+    <option value="9"> 10 </option>
+    <option value="10"> 11 </option>
+    <option value="11"> 12 </option>
+    <option value="12"> 13 </option>
+    <option value="13"> 14 </option>
+    <option value="14"> 15 </option>
+    <option value="15"> 16 </option>
+    <option value="16"> 17 </option>
+    <option value="17"> 18 </option>
+    <option value="18"> 19 </option>
+    <option value="19"> 20 </option>
+    <option value="20"> 21 </option>
+    <option value="21"> 22 </option>
+    <option value="22"> 23 </option>
+    <option value="23"> 24 </option>
+
+  </select>
+</div>
+
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+
+</form>
+
+
+</body>
+</html> 
