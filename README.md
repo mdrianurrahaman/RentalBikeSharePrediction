@@ -28,3 +28,9 @@ python setup.py install
 ```
 pip install -r requirements.txt
 ```
+```bash
+MLFLOW_TRACKING_URI=https://dagshub.com/mdrianurrahaman/RentalBikeSharePrediction.mlflow \
+MLFLOW_TRACKING_USERNAME=mdrianurrahaman \
+MLFLOW_TRACKING_PASSWORD=your_token  \
+python script.py
+```

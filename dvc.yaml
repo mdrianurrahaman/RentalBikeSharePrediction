@@ -1,0 +1,16 @@
+stages:
+  training:
+    cmd: python src/RentalBikeSharePrediction/pipelines/training_pipeline.py
+    deps:
+      - src/RentalBikeSharePrediction/pipelines/training_pipeline.py
+      - src/RentalBikeSharePrediction/components/data_ingestion.py
+      - src/RentalBikeSharePrediction/components/data_transformation.py
+      - src/RentalBikeSharePrediction/components/model_trainer.py
+      - src/RentalBikeSharePrediction/components/model_evaluation.py
+
+    outs:
+      - artifacts/data.csv
+      - artifacts/test.csv
+      - artifacts/train.csv
+      - artifacts/preprocessor.pkl
+      - artifacts/model.pkl

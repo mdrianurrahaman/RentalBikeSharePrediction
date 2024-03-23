@@ -1,0 +1,46 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: python src/RentalBikeSharePrediction/pipelines/training_pipeline.py
+    deps:
+    - path: src/RentalBikeSharePrediction/components/data_ingestion.py
+      hash: md5
+      md5: ddcc0a290bb1266d83b9012828e27147
+      size: 2859
+    - path: src/RentalBikeSharePrediction/components/data_transformation.py
+      hash: md5
+      md5: eb8475ced4cb4afa9602505a7f346233
+      size: 3866
+    - path: src/RentalBikeSharePrediction/components/model_evaluation.py
+      hash: md5
+      md5: b04cbd3d995ba919eca67c7f312c0003
+      size: 2176
+    - path: src/RentalBikeSharePrediction/components/model_trainer.py
+      hash: md5
+      md5: 3427622d4fd919815056cef8c20c0d57
+      size: 5733
+    - path: src/RentalBikeSharePrediction/pipelines/training_pipeline.py
+      hash: md5
+      md5: b926130130fe7eb43dddf61e5ec35c8a
+      size: 933
+    outs:
+    - path: artifacts/data.csv
+      hash: md5
+      md5: 563d8bc6e512369fbb5bddce60f10d42
+      size: 617554
+    - path: artifacts/model.pkl
+      hash: md5
+      md5: 2e8c55428402584bfccceb4d3df1ac97
+      size: 2802547
+    - path: artifacts/preprocessor.pkl
+      hash: md5
+      md5: 387513a6dbdd944119c399859872aa53
+      size: 4078
+    - path: artifacts/test.csv
+      hash: md5
+      md5: ef395c5df13f0a8fb269761f411c8543
+      size: 123448
+    - path: artifacts/train.csv
+      hash: md5
+      md5: 2e8d528a813ffff4a90eeed15a6cb36e
+      size: 494178
