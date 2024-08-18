@@ -50,5 +50,5 @@ def predict_datapoint():
         return render_template('result.html',final_result=results)
     
 
-if __name__=="__main__":
-    app.run(host="0.0.0.0") 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5050)
